@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+    <head>
+        <title>Getting Started: Serving Web Content</title>
+            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css">
+    </head>
+    <body>
+        <div>
+            <div class="container mt-5">
+                <form th:method="POST" th:action="@{/loadP}">
+
+
+                    Truck:
+                    <select name="id_truck" id="id_truck" class="form-control">
+                        <option th:each= "t : ${trucks}"  th:text="${t.getName()}" th:value="${t.getID()}"></option>
+                    </select>
+                    <br/>
+                    <br/>
+                    Cargo:
+                    <select name="id_cargo" id="id_cargo" class="form-control">
+                        <option th:each= "c : ${cargo}" th:text="${c.getName()}" th:value="${c.getID()}"></option>
+                    </select>
+                    <br/>
+
+                    <input class="btn btn-primary" type="Submit" value="Подтвердить"/>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>
